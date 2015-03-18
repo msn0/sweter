@@ -1,0 +1,29 @@
+{
+  "name": "sweter",
+  "version": "0.1.0",
+  "description": "sweter",
+  "author": {
+    "name": "Michał Jezierski",
+    "email": "ambinanitelo@gmail.com"
+  },
+  "engines": {
+    "node": ">=0.11.0"
+  },
+  "repository": "msn0/sweter",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "keywords": [
+    "performance"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1"
+  }
+}
