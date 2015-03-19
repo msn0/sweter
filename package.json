@@ -6,8 +6,14 @@
     "name": "Michał Jezierski",
     "email": "ambinanitelo@gmail.com"
   },
+  "scripts": {
+    "test": "jshint . && mocha test/*.js"
+  },
   "engines": {
     "node": ">=0.11.0"
+  },
+  "bin": {
+    "sweter": "cli.js"
   },
   "repository": "msn0/sweter",
   "license": "Apache-2.0",
