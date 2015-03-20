@@ -9,7 +9,7 @@ var cli = meow({
     '  sweter <url>',
     '',
     'Example',
-    '  sweter todomvc.com'
+    '  sweter allegro.pl'
   ].join('\n')
 });
 
@@ -18,4 +18,4 @@ if (!cli.input[0]) {
   process.exit(1);
 }
 
-sweter.process(cli.input[0]);
+sweter.process(cli.input[0], cli.flags);
