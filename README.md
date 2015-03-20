@@ -2,6 +2,14 @@
 
 Simple web performance reporter.
 
+## Installation
+
+```
+npm install -g sweter
+```
+
 ## Usage
 
-```node ./cli.js http://allegro.pl```
+```
+sweter http://allegro.pl
+```
