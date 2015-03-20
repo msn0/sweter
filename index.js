@@ -1,7 +1,7 @@
 'use strict';
 
 var phantomas = require('phantomas');
-var appender = require('./lib/appenders/sweter-console-appender');
+var appender = require('./lib/appenders/console');
 
 var getMetrics = function (metrics) {
   return {
