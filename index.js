@@ -12,7 +12,10 @@ var getMetrics = function (metrics) {
 };
 
 var handleResults = function (results) {
-  appender.push(new Date().getTime(), getMetrics(results.getMetrics()));
+  appender.push(new Date().getTime(), getMetrics(results.getMetrics()))
+    .then(function () {
+      console.log("done.");
+    });
 };
 
 var handleError = function (error) {

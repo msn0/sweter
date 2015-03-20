@@ -8,6 +8,6 @@
   "newcap": true,
   "noarg": true,
   "undef": true,
-  "unused": "vars",
+  "unused": true,
   "strict": true
 }
