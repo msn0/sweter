@@ -3,7 +3,7 @@
 var phantomas = require('phantomas');
 var appender = require('./lib/appenders/console');
 
-var getMetrics = function (metrics) {
+var prepareMetrics = function (metrics) {
   return {
     "timeToFirstByte": metrics.timeToFirstByte,
     "domInteractive": metrics.domInteractive,
@@ -12,7 +12,8 @@ var getMetrics = function (metrics) {
 };
 
 var handleResults = function (results) {
-  appender.push(new Date().getTime(), getMetrics(results.getMetrics()))
+  appender
+    .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
     .then(function () {
       console.log("done.");
     });
