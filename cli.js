@@ -8,7 +8,7 @@ var phantomas = require('phantomas');
 var cli = meow({
   help: [
     'Usage',
-    '  sweter <url> <options>',
+    '  sweter <url> [options]',
     '',
     'Example',
     '  sweter http://allegro.pl',
