@@ -2,11 +2,10 @@
 
 var Sweter = function (params) {
 
+  var url = params.url;
+  var runs = params.runs;
   var runner = params.runner;
-
-  this.url = params.url;
-  this.runs = params.runs;
-  this.appender = params.appender;
+  var appender = params.appender;
 
   var prepareMetrics = function (metrics) {
     return {
@@ -17,7 +16,7 @@ var Sweter = function (params) {
   };
 
   var handleResults = function (results) {
-    this.appender
+    appender
       .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
       .then(proceed.bind(this));
   };
@@ -27,15 +26,14 @@ var Sweter = function (params) {
   };
 
   var proceed = function () {
-    if (this.runs > 1) {
-      this.run(this.url, {
-        runs: --this.runs
-      });
+    if (runs > 1) {
+      runs--;
+      this.run();
     }
   };
 
   this.run = function () {
-    var task = runner(this.url);
+    var task = runner(url);
     task.on("results", handleResults.bind(this));
     task.on("error", handleError.bind(this));
   };
