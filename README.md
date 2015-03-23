@@ -20,5 +20,5 @@ $ sweter --help
     sweter http://allegro.pl --runs 1068
 
   Options
-    --runs    Number of test to be performed.
+    --runs    Number of tests to be performed.
 ```

@@ -14,7 +14,7 @@ var cli = meow({
     '  sweter http://allegro.pl',
     '',
     'Options',
-    '  --runs   Number of test to be performed.'
+    '  --runs   Number of tests to be performed.'
   ].join('\n')
 });
 
