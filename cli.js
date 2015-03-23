@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 'use strict';
 var meow = require('meow');
-var sweter = require('./');
+var Sweter = require('./');
+var appender = require('./lib/appender/console');
+var phantomas = require('phantomas');
 
 var cli = meow({
   help: [
     'Usage',
-    '  sweter <url>',
+    '  sweter <url> <options>',
     '',
     'Example',
-    '  sweter allegro.pl'
+    '  sweter http://allegro.pl',
+    '',
+    'Options',
+    '  --runs   Number of test to be performed.'
   ].join('\n')
 });
 
@@ -18,4 +23,11 @@ if (!cli.input[0]) {
   process.exit(1);
 }
 
-sweter.process(cli.input[0], cli.flags);
+var sweter = new Sweter({
+  url: cli.input[0],
+  runs: cli.flags.runs || 1,
+  appender: appender,
+  runner: phantomas
+});
+
+sweter.run();
