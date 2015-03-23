@@ -2,6 +2,8 @@
 
 var phantomas = require('phantomas');
 var appender = require('./lib/appender/console');
+var runs = 0;
+var url;
 
 var prepareMetrics = function (metrics) {
   return {
@@ -15,7 +17,11 @@ var handleResults = function (results) {
   appender
     .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
     .then(function () {
-      console.log("done.");
+      if (runs > 0) {
+        process(url, {
+          runs: --runs
+        });
+      }
     });
 };
 
@@ -23,9 +29,14 @@ var handleError = function (error) {
   console.error(error);
 };
 
-module.exports.process = function (url) {
-  var task = phantomas(url);
+var process = function (uri, flags) {
 
+  url = uri;
+  runs = flags.runs || 1;
+
+  var task = phantomas(url);
   task.on("results", handleResults);
   task.on("error", handleError);
 };
+
+module.exports.process = process;
