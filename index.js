@@ -1,7 +1,7 @@
 'use strict';
 
 var phantomas = require('phantomas');
-var appender = require('./lib/appenders/console');
+var appender = require('./lib/appender/console');
 
 var prepareMetrics = function (metrics) {
   return {
