@@ -11,5 +11,5 @@ npm install -g sweter
 ## Usage
 
 ```
-sweter http://allegro.pl
+sweter http://allegro.pl/cart
 ```
