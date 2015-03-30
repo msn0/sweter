@@ -19,12 +19,12 @@ describe('Console appender', function () {
   });
 
   it('should display formatted result', function () {
-    appender.push(1, {
+    appender.push(0, {
       "A": "foo",
       "B": "bar"
     });
 
-    assert.equal("Thu Jan 01 1970 - 1:00:00 AM\n  A: foo\n  B: bar\n", this.out);
+    assert.equal("Thu, 01 Jan 1970 00:00:00 GMT\n  A: foo\n  B: bar\n", this.out);
   });
 });
 
