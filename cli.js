@@ -3,7 +3,7 @@
 var meow = require('meow');
 var Sweter = require('./');
 var appender = require('./lib/appender/console');
-var runner = require('./lib/runner');
+var runner = require('./lib/runner/phantomas');
 
 var cli = meow({
   help: [
