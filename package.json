@@ -10,7 +10,7 @@
     "test": "./node_modules/.bin/jshint cli.js index.js lib/**/*.js test/* && mocha test/*.js"
   },
   "engines": {
-    "node": ">=0.11.0"
+    "node": ">=0.12.0"
   },
   "bin": {
     "sweter": "cli.js"
