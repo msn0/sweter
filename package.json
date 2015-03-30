@@ -7,7 +7,8 @@
     "email": "ambinanitelo@gmail.com"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jshint cli.js index.js lib/**/*.js && mocha test/*.js"
+    "pretest": "./node_modules/.bin/jshint cli.js index.js lib/**/*.js",
+    "test": "mocha"
   },
   "engines": {
     "node": ">=0.12.0"
