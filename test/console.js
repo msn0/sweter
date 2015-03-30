@@ -18,16 +18,13 @@ describe('Console appender', function () {
     console.log = this.log;
   });
 
-  it('should be truthy', function () {
+  it('should display formatted result', function () {
     appender.push(1, {
       "A": "foo",
       "B": "bar"
     });
 
-    console.error(this.out);
-
-
-    assert.equal("Thu Jan 01 1970 - 1:00:00 AM  A: foo  B: bar", this.out);
+    assert.equal("Thu Jan 01 1970 - 1:00:00 AM\n  A: foo\n  B: bar\n", this.out);
   });
 });
 
