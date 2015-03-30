@@ -33,9 +33,7 @@ var Sweter = function (params) {
   };
 
   this.run = function () {
-    var task = runner(url);
-    task.on("results", handleResults.bind(this));
-    task.on("error", handleError.bind(this));
+    runner.run(url, handleResults.bind(this), handleError.bind(this));
   };
 
 };

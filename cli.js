@@ -3,7 +3,7 @@
 var meow = require('meow');
 var Sweter = require('./');
 var appender = require('./lib/appender/console');
-var phantomas = require('phantomas');
+var runner = require('./lib/runner');
 
 var cli = meow({
   help: [
@@ -27,7 +27,7 @@ var sweter = new Sweter({
   url: cli.input[0],
   runs: cli.flags.runs || 1,
   appender: appender,
-  runner: phantomas
+  runner: runner
 });
 
 sweter.run();
