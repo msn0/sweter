@@ -1,6 +1,6 @@
 'use strict';
 
-var Sweter = function (params) {
+module.exports = function (params) {
 
   var url = params.url;
   var runs = params.runs;
@@ -33,9 +33,8 @@ var Sweter = function (params) {
   };
 
   this.run = function () {
-    runner.run(url, handleResults.bind(this), handleError.bind(this));
+    runner.run(url)
+      .then(handleResults.bind(this), handleError.bind(this));
   };
 
 };
-
-module.exports = Sweter;

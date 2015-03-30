@@ -8,7 +8,11 @@ describe('Sweter', function () {
 
   beforeEach(function () {
     this.runner = {
-      run: function () {}
+      run: function () {
+        return new Promise(function (resolve) {
+          resolve();
+        });
+      }
     };
     this.appender = function () {};
   });
