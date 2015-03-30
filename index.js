@@ -33,7 +33,8 @@ module.exports = function (params) {
   };
 
   this.run = function () {
-    runner.run(url)
+    runner
+      .run(url)
       .then(handleResults.bind(this), handleError.bind(this));
   };
 
