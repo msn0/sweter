@@ -2,7 +2,7 @@
 
 var assert = require('assert');
 var sinon = require('sinon');
-var Sweter = require('../');
+var sweter = require('../');
 
 describe('Sweter', function () {
 
@@ -19,14 +19,14 @@ describe('Sweter', function () {
 
   it('runner should be called with provided url', function () {
     var spy = sinon.spy(this.runner, "run");
-    var sweter = new Sweter({
-      url: "url",
-      runs: 1,
-      runner: this.runner,
-      appender: this.appender
-    });
-
-    sweter.run();
+    sweter
+      .init({
+        url: "url",
+        runs: 1,
+        runner: this.runner,
+        appender: this.appender
+      })
+      .run();
 
     assert(spy.calledWith("url"));
   });

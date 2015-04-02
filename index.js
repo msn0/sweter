@@ -1,41 +1,43 @@
 'use strict';
 
-module.exports = function (params) {
+var url, runs, runner, appender;
 
-  var url = params.url;
-  var runs = params.runs;
-  var runner = params.runner;
-  var appender = params.appender;
-
-  var prepareMetrics = function (metrics) {
-    return {
-      "timeToFirstByte": metrics.timeToFirstByte,
-      "domInteractive": metrics.domInteractive,
-      "domComplete": metrics.domComplete
-    };
+var prepareMetrics = function (metrics) {
+  return {
+    "timeToFirstByte": metrics.timeToFirstByte,
+    "domInteractive": metrics.domInteractive,
+    "domComplete": metrics.domComplete
   };
+};
 
-  var handleResults = function (results) {
-    appender
-      .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
-      .then(proceed.bind(this));
-  };
+var handleResults = function (results) {
+  appender
+    .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
+    .then(proceed.bind(this));
+};
 
-  var handleError = function (error) {
-    console.error(error);
-  };
+var handleError = function (error) {
+  console.error(error);
+};
 
-  var proceed = function () {
-    if (runs > 1) {
-      runs--;
-      this.run();
-    }
-  };
+var proceed = function () {
+  if (runs > 1) {
+    runs--;
+    this.run();
+  }
+};
 
-  this.run = function () {
-    runner
-      .run(url)
-      .then(handleResults.bind(this), handleError.bind(this));
-  };
+module.exports.init = function (params) {
+  url = params.url;
+  runs = params.runs;
+  runner = params.runner;
+  appender = params.appender;
 
+  return this;
+};
+
+module.exports.run = function () {
+  runner
+    .run(url)
+    .then(handleResults.bind(this), handleError.bind(this));
 };

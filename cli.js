@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 var meow = require('meow');
-var Sweter = require('./');
+var sweter = require('./');
 var appender = require('./lib/appender/console');
 var runner = require('./lib/runner/phantomas');
 
@@ -23,11 +23,11 @@ if (!cli.input[0]) {
   process.exit(1);
 }
 
-var sweter = new Sweter({
-  url: cli.input[0],
-  runs: cli.flags.runs || 1,
-  appender: appender,
-  runner: runner
-});
-
-sweter.run();
+sweter
+  .init({
+    url: cli.input[0],
+    runs: cli.flags.runs || 1,
+    appender: appender,
+    runner: runner
+  })
+  .run();
