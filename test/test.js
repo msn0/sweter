@@ -9,9 +9,7 @@ describe('Sweter', function () {
   beforeEach(function () {
     this.runner = {
       run: function () {
-        return new Promise(function (resolve) {
-          resolve();
-        });
+        return Promise.resolve();
       }
     };
     this.appender = function () {};
