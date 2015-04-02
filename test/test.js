@@ -18,7 +18,7 @@ describe('Sweter', function () {
   });
 
   it('runner should be called with provided url', function () {
-    var stub = sinon.spy(this.runner, "run");
+    var spy = sinon.spy(this.runner, "run");
     var sweter = new Sweter({
       url: "url",
       runs: 1,
@@ -28,7 +28,7 @@ describe('Sweter', function () {
 
     sweter.run();
 
-    assert(stub.calledWith("url"));
+    assert(spy.calledWith("url"));
   });
 
 });
