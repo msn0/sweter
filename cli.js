@@ -27,6 +27,7 @@ sweter
   .init({
     url: cli.input[0],
     runs: cli.flags.runs || 1,
+    timeout: cli.flags.timeout || 30,
     appender: appender,
     runner: runner
   })

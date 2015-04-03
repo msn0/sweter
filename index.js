@@ -1,6 +1,6 @@
 'use strict';
 
-var url, runs, runner, appender;
+var url, runs, timeout, runner, appender, options = {};
 
 var prepareMetrics = function (metrics) {
   return {
@@ -32,12 +32,13 @@ module.exports.init = function (params) {
   runs = params.runs;
   runner = params.runner;
   appender = params.appender;
+  options.timeout = params.timeout;
 
   return this;
 };
 
 module.exports.run = function () {
   runner
-    .run(url)
+    .run(url, options)
     .then(handleResults.bind(this), handleError.bind(this));
 };
