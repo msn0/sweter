@@ -12,7 +12,7 @@ var prepareMetrics = function (metrics) {
 
 var handleResults = function (results) {
   appender
-    .push(new Date().getTime(), prepareMetrics(results.getMetrics()))
+    .push(Date.now(), prepareMetrics(results.getMetrics()))
     .then(proceed.bind(this));
 };
 
