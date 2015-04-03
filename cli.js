@@ -14,7 +14,8 @@ var cli = meow({
     '  sweter http://allegro.pl',
     '',
     'Options',
-    '  --runs   Number of tests to be performed.'
+    '  --runs     Number of tests to be performed',
+    '  --timeout  Timeout for single test run, defaults to 30s'
   ].join('\n')
 });
 

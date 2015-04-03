@@ -1,6 +1,6 @@
 'use strict';
 
-var url, runs, timeout, runner, appender, options = {};
+var url, runs, runner, appender, options = {};
 
 var prepareMetrics = function (metrics) {
   return {
