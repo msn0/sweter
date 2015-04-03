@@ -33,6 +33,7 @@ module.exports.init = function (params) {
   runner = params.runner;
   appender = params.appender;
   options.timeout = params.timeout;
+  options.modules = "windowPerformance";
 
   return this;
 };
