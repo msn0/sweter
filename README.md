@@ -23,3 +23,16 @@ $ sweter --help
     --runs      Number of tests to be performed
     --timeout   Timeout for single test run, defaults to 30s
 ```
+
+## Output
+
+```
+$ sweter https://google.com
+
+Sat, 04 Apr 2015 10:40:01 GMT
+  timeToFirstByte: 139
+  domInteractive: 293
+  domComplete: 664
+```
+
+
