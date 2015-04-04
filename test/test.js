@@ -12,7 +12,7 @@ describe('Sweter', function () {
         return Promise.resolve();
       }
     };
-    this.appender = function () {};
+    this.reporter = function () {};
   });
 
   it('runner should be called with provided url', function () {
@@ -22,7 +22,7 @@ describe('Sweter', function () {
         url: "url",
         runs: 1,
         runner: this.runner,
-        appender: this.appender
+        reporter: this.reporter
       })
       .run();
 

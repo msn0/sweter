@@ -1,9 +1,9 @@
 'use strict';
 
 var assert = require('assert');
-var appender = require('../lib/appender/console');
+var reporter = require('../lib/reporter/console');
 
-describe('Console appender', function () {
+describe('Console reporter', function () {
 
   beforeEach(function () {
     this.log = console.log;
@@ -18,7 +18,7 @@ describe('Console appender', function () {
   });
 
   it('should display formatted result', function () {
-    appender.push(0, {
+    reporter.push(0, {
       "A": "foo",
       "B": "bar"
     });

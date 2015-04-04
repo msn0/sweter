@@ -1,6 +1,6 @@
 'use strict';
 
-var url, runs, runner, appender, options = {};
+var url, runs, runner, reporter, options = {};
 
 var prepareMetrics = function (metrics) {
   return {
@@ -11,7 +11,7 @@ var prepareMetrics = function (metrics) {
 };
 
 var handleResults = function (results) {
-  appender
+  reporter
     .push(Date.now(), prepareMetrics(results.getMetrics()))
     .then(proceed.bind(this));
 };
@@ -31,7 +31,7 @@ module.exports.init = function (params) {
   url = params.url;
   runs = params.runs;
   runner = params.runner;
-  appender = params.appender;
+  reporter = params.reporter;
   options.timeout = params.timeout;
   options.modules = "windowPerformance";
 

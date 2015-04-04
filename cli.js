@@ -2,7 +2,7 @@
 'use strict';
 var meow = require('meow');
 var sweter = require('./');
-var appender = require('./lib/appender/console');
+var reporter = require('./lib/reporter/console');
 var runner = require('./lib/runner/phantomas');
 
 var cli = meow({
@@ -29,7 +29,7 @@ sweter
     url: cli.input[0],
     runs: cli.flags.runs || 1,
     timeout: cli.flags.timeout || 30,
-    appender: appender,
+    reporter: reporter,
     runner: runner
   })
   .run();
