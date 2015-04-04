@@ -27,7 +27,7 @@ $ sweter --help
 ## Output
 
 ```
-$ sweter https://google.com
+$ sweter http://google.com
 
 Sat, 04 Apr 2015 10:40:01 GMT
   timeToFirstByte: 139
