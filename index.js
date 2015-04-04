@@ -18,6 +18,8 @@ var handleResults = function (results) {
 
 var handleError = function (error) {
   console.error(error);
+  runs++;
+  proceed();
 };
 
 var proceed = function () {
