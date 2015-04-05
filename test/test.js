@@ -12,7 +12,9 @@ describe('Sweter', function () {
         return Promise.resolve();
       }
     };
-    this.reporter = function () {};
+    this.reporter = {
+      init: function () {}
+    };
   });
 
   it('runner should be called with provided url', function () {
@@ -22,7 +24,8 @@ describe('Sweter', function () {
         url: "url",
         runs: 1,
         runner: this.runner,
-        reporter: this.reporter
+        reporter: this.reporter,
+        reporterOptions: {}
       })
       .run();
 

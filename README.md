@@ -20,8 +20,13 @@ $ sweter --help
     sweter http://allegro.pl --runs 1068
 
   Options
-    --runs      Number of tests to be performed
-    --timeout   Timeout for single test run, defaults to 30s
+    --runs       number of tests to be performed
+    --timeout    timeout for single test run, defaults to 30s
+    --reporter   console (default) or elasticsearch
+
+  Elasticsearch options
+    --es-host    elasticsearch host
+    --es-index   elasticsearch index
 ```
 
 ## Output
