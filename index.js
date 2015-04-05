@@ -37,6 +37,8 @@ module.exports.init = function (params) {
   options.timeout = params.timeout;
   options.modules = "windowPerformance";
 
+  reporter.init(params.reporterOptions);
+
   return this;
 };
 
