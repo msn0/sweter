@@ -50,8 +50,6 @@ sweter can feed elasticsearch instance
 
 ```
 $ sweter http://google.com --reporter elasticsearch --es-host localhost --es-index sweter
-```
-```
 $ curl http://localhost:9200/sweter/_search
 ```
 ```json
