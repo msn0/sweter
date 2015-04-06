@@ -31,6 +31,10 @@ $ sweter --help
 
 ## Output
 
+### Console reporter
+
+By default sweter outputs data to console:
+
 ```
 $ sweter http://google.com
 
@@ -39,5 +43,35 @@ Sat, 04 Apr 2015 10:40:01 GMT
   domInteractive: 293
   domComplete: 664
 ```
+
+### ElasticSearch reporter
+
+sweter can feed elasticsearch instance
+
+```
+$ sweter http://google.com --reporter elasticsearch --es-host localhost --es-index sweter
+```
+```
+$ curl http://localhost:9200/sweter/_search
+```
+```json
+[...]
+{
+  "_index": "sweter",
+  "_type": "object",
+  "_id": "AUyLZuLrG92aw_Xb4w3P",
+  "_score": 1,
+  "_source": {
+    "timestamp": 1428267917998,
+    "metrics": {
+      "timeToFirstByte": 365,
+      "domInteractive": 764,
+      "domComplete": 3890
+    }
+  }
+}
+[...]
+```
+
 
 
