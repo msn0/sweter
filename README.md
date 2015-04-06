@@ -55,7 +55,6 @@ $ sweter http://google.com --reporter elasticsearch --es-host localhost --es-ind
 $ curl http://localhost:9200/sweter/_search
 ```
 ```json
-//...
 {
   "_index": "sweter",
   "_type": "object",
@@ -70,7 +69,6 @@ $ curl http://localhost:9200/sweter/_search
     }
   }
 }
-//...
 ```
 
 
