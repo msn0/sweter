@@ -33,7 +33,7 @@ $ sweter --help
 
 ### Console reporter
 
-By default sweter outputs data to console:
+By default sweter outputs data to console
 
 ```
 $ sweter http://google.com
