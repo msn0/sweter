@@ -25,11 +25,15 @@ describe('Sweter', function () {
         runs: 1,
         runner: this.runner,
         reporter: this.reporter,
-        reporterOptions: {}
+        reporterOptions: {},
+        timeout: 11
       })
       .run();
 
-    assert(spy.calledWith("url"));
+    assert(spy.calledWith("url", {
+      timeout: 11,
+      modules: "windowPerformance"
+    }));
   });
 
 });
