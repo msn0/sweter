@@ -22,11 +22,11 @@ $ sweter --help
   Options
     --runs       number of tests to be performed
     --timeout    timeout for single test run, defaults to 30s
-    --reporter   console (default) or elasticsearch
+    --reporter   console (default) or elastic
 
   Elasticsearch options
-    --es-host    elasticsearch host
-    --es-index   elasticsearch index
+    --elastic-host    elasticsearch host
+    --elastic-index   elasticsearch index
 ```
 
 ## Output
@@ -49,7 +49,7 @@ Sat, 04 Apr 2015 10:40:01 GMT
 sweter can feed elasticsearch instance
 
 ```
-$ sweter http://google.com --reporter elasticsearch --es-host localhost --es-index sweter
+$ sweter http://google.com --reporter elastic --elastic-host localhost --elastic-index sweter
 $ curl http://localhost:9200/sweter/_search
 {
   "_index": "sweter",
