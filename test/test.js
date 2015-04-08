@@ -37,17 +37,17 @@ describe('Sweter', function () {
   });
 
   it('reporter should be initialized with reporterOptions', function () {
-      var spy = sinon.spy(this.reporter, "init");
-      sweter.init({
-        reporter: this.reporter,
-        reporterOptions: {
-          foo: "bar"
-        }
-      });
-
-      assert(spy.calledWith({
+    var spy = sinon.spy(this.reporter, "init");
+    sweter.init({
+      reporter: this.reporter,
+      reporterOptions: {
         foo: "bar"
-      }));
+      }
     });
+
+    assert(spy.calledWith({
+      foo: "bar"
+    }));
+  });
 
 });
