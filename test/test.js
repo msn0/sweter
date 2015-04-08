@@ -50,4 +50,18 @@ describe('Sweter', function () {
     }));
   });
 
+  it('custom reporter should be initialized if provided', function () {
+    var spy = sinon.spy(this.reporter, "init");
+    sweter.init({
+      reporter: this.reporter,
+      reporterOptions: {
+        foo: "bar"
+      }
+    });
+
+    assert(spy.calledWith({
+      foo: "bar"
+    }));
+  });
+
 });

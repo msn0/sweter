@@ -16,11 +16,11 @@ var cli = meow({
     'Options',
     '  --runs       number of tests to be performed',
     '  --timeout    timeout for single test run, defaults to 30s',
-    '  --reporter   console (default) or elasticsearch',
+    '  --reporter   console (default) or elastic',
     '',
     'Elasticsearch options',
-    '  --es-host    elasticsearch host',
-    '  --es-index   elasticsearch index'
+    '  --elastic-host    elasticsearch host',
+    '  --elastic-index   elasticsearch index'
   ].join('\n')
 });
 
@@ -37,16 +37,19 @@ var params = {
   runner: runner
 };
 
-if (cli.flags.reporter === 'elasticsearch') {
-  if (!cli.flags.hasOwnProperty('esHost') || !cli.flags.hasOwnProperty('esIndex')) {
-    console.error('Please supply --es-host and --es-index params');
-    process.exit(1);
+if (cli.flags.reporter) {
+  var reporter = cli.flags.reporter;
+  var flag;
+
+  params.reporter = require('./lib/reporter/' + reporter);
+  params.reporterOptions = {};
+
+  for (var key in cli.flags) {
+    if (key.match(reporter + "([A-Z][a-z]+)")) {
+      flag = key.match(reporter + "([A-Z][a-z]+)")[1].toLowerCase();
+      params.reporterOptions[flag] = cli.flags[key];
+    }
   }
-  params.reporter = require('./lib/reporter/elasticsearch');
-  params.reporterOptions = {
-    'host': cli.flags.esHost,
-    'index': cli.flags.esIndex
-  };
 }
 
 sweter
