@@ -19,10 +19,6 @@ describe('Elasticsearch reporter', function () {
     this.clientSpy = sinon.spy(this.elasticsearch, 'Client');
     this.createSpy = sinon.spy(this.client, 'create');
   });
-  afterEach(function () {
-    this.elasticsearch.Client.restore();
-    this.client.create.restore();
-  });
 
   it('init should create client with given host', function () {
     reporter.init({
