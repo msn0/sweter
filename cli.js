@@ -4,8 +4,7 @@ var meow = require('meow');
 var sweter = require('./');
 var reporter = require('./lib/reporter/console');
 var runner = require('./lib/runner/phantomas');
-
-var reporter, flag;
+var flag;
 
 var cli = meow({
   help: [
