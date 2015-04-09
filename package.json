@@ -1,7 +1,7 @@
 {
   "name": "sweter",
-  "version": "0.5.1",
-  "description": "sweter",
+  "version": "0.6.0",
+  "description": "Simple web performance reporter",
   "author": {
     "name": "Michał Jezierski",
     "email": "ambinanitelo@gmail.com"
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "jshint": "^2.6.3",
-    "mocha": "^2.0.1",
+    "mocha": "^2.2.4",
     "rewire": "^2.3.1",
     "sinon": "^1.14.1"
   }
