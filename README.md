@@ -67,5 +67,11 @@ $ curl http://localhost:9200/sweter/_search
 }
 ```
 
+### Custom reporters
 
+You can write your own reporter if you want. See https://github.com/msn0/sweter-custom-reporter as an example and use it this way
+
+```
+$ sweter http://google.com --custom-reporter sweter-custom-reporter
+```
 
