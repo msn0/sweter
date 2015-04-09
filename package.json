@@ -1,7 +1,7 @@
 {
   "name": "sweter",
   "version": "0.5.1",
-  "description": "sweter",
+  "description": "Simple web performance reporter",
   "author": {
     "name": "Michał Jezierski",
     "email": "ambinanitelo@gmail.com"
