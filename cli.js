@@ -22,7 +22,10 @@ var cli = meow({
     '',
     'Elasticsearch options',
     '  --elastic-host    elasticsearch host',
-    '  --elastic-index   elasticsearch index'
+    '  --elastic-index   elasticsearch index',
+    '',
+    'Custom reporters',
+    '  --custom-reporter  a node module to be used as reporter'
   ].join('\n')
 });
 
