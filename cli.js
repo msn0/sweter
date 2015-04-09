@@ -5,6 +5,8 @@ var sweter = require('./');
 var reporter = require('./lib/reporter/console');
 var runner = require('./lib/runner/phantomas');
 
+var reporter, flag;
+
 var cli = meow({
   help: [
     'Usage',
@@ -37,11 +39,9 @@ var params = {
   runner: runner
 };
 
-if (cli.flags.reporter) {
-  var reporter = cli.flags.reporter;
-  var flag;
-
-  params.reporter = require('./lib/reporter/' + reporter);
+if (cli.flags.reporter || cli.flags.customReporter) {
+  reporter = cli.flags.reporter || cli.flags.customReporter;
+  params.reporter = cli.flags.reporter ? require('./lib/reporter/' + reporter) : require(reporter);
   params.reporterOptions = {};
 
   for (var key in cli.flags) {
