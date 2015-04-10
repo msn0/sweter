@@ -83,3 +83,9 @@ So, assuming your node module name is ``foo`` then
 ```
 $ sweter http://google.com --custom-reporter foo
 ```
+
+If ``foo`` requires some additional params then pass them this way
+
+```
+$ sweter http://google.com --custom-reporter foo --foo-param1 "my param" --foo-param2 777
+```
