@@ -30,7 +30,7 @@ describe('Sweter', function () {
       })
       .run();
 
-    assert(spy.calledWith("url", {
+    assert(spy.calledWith("http://url", {
       timeout: 11,
       modules: "windowPerformance"
     }));

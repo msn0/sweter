@@ -30,7 +30,7 @@ var proceed = function () {
 };
 
 module.exports.init = function (params) {
-  url = params.url;
+  url = /^http/.test(params.url) ?  params.url : "http://" + params.url;
   runs = params.runs;
   runner = params.runner;
   reporter = params.reporter;
