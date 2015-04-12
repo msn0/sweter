@@ -3,7 +3,6 @@
 var meow = require('meow');
 var sweter = require('./');
 var reporter = require('./lib/reporter/console');
-var runner = require('./lib/runner/phantomas');
 var flag;
 
 var cli = meow({
@@ -37,8 +36,7 @@ var params = {
   url: cli.input[0],
   runs: cli.flags.runs || 1,
   timeout: cli.flags.timeout || 30,
-  reporter: reporter,
-  runner: runner
+  reporter: reporter
 };
 
 if (cli.flags.reporter || cli.flags.customReporter) {

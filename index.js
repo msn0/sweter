@@ -1,6 +1,8 @@
 'use strict';
 
-var url, runs, runner, reporter, options = {};
+var runner = require('./lib/runner/phantomas');
+
+var url, runs, reporter, options = {};
 
 var prepareMetrics = function (metrics) {
   return {
@@ -32,7 +34,6 @@ var proceed = function () {
 module.exports.init = function (params) {
   url = /^http/.test(params.url) ?  params.url : "http://" + params.url;
   runs = params.runs;
-  runner = params.runner;
   reporter = params.reporter;
   options.timeout = params.timeout;
   options.modules = "windowPerformance";

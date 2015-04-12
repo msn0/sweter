@@ -2,7 +2,8 @@
 
 var assert = require('assert');
 var sinon = require('sinon');
-var sweter = require('../');
+var rewire = require("rewire");
+var sweter = rewire('../');
 
 describe('Sweter', function () {
 
@@ -15,6 +16,8 @@ describe('Sweter', function () {
     this.reporter = {
       init: function () {}
     };
+    this.sweter = sweter;
+    this.sweter.__set__("runner", this.runner);
   });
 
   it('runner should be called with provided url', function () {
@@ -23,7 +26,6 @@ describe('Sweter', function () {
       .init({
         url: "url",
         runs: 1,
-        runner: this.runner,
         reporter: this.reporter,
         reporterOptions: {},
         timeout: 11
