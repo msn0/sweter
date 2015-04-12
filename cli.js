@@ -17,7 +17,7 @@ var cli = meow({
     'Options',
     '  --runs       number of tests to be performed',
     '  --timeout    timeout for single test run, defaults to 30s',
-    '  --reporter   console (default) or elastic',
+    '  --reporter   console (default), elastic or json',
     '',
     'Elasticsearch options',
     '  --elastic-host    elasticsearch host',
