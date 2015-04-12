@@ -22,7 +22,7 @@ $ sweter --help
   Options
     --runs       number of tests to be performed
     --timeout    timeout for single test run, defaults to 30s
-    --reporter   console (default) or elastic
+    --reporter   console (default), elastic or json
 
   Elasticsearch options
     --elastic-host    elasticsearch host
@@ -78,7 +78,7 @@ You can write your own reporter if you want. See https://github.com/msn0/sweter-
 $ sweter http://google.com --custom-reporter sweter-custom-reporter
 ```
 
-So, assuming your node module name is ``foo`` then 
+So, assuming your node module name is ``foo`` then
 
 ```
 $ sweter http://google.com --custom-reporter foo
