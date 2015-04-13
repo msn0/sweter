@@ -22,47 +22,24 @@ describe('Sweter', function () {
 
   it('runner should be called with provided url', function () {
     var spy = sinon.spy(this.runner, "run");
-    sweter
+    this.sweter
       .init({
-        url: "url",
-        runs: 1,
-        reporter: this.reporter,
-        reporterOptions: {},
-        timeout: 11
+        url: "url"
       })
       .run();
+    assert(spy.calledWith("http://url"));
+  });
 
+  it('runner should be called with default options', function () {
+    var spy = sinon.spy(this.runner, "run");
+    this.sweter
+      .init({
+        url: "http://url"
+      })
+      .run();
     assert(spy.calledWith("http://url", {
-      timeout: 11,
-      modules: "windowPerformance"
-    }));
-  });
-
-  it('reporter should be initialized with reporterOptions', function () {
-    var spy = sinon.spy(this.reporter, "init");
-    sweter.init({
-      reporter: this.reporter,
-      reporterOptions: {
-        foo: "bar"
-      }
-    });
-
-    assert(spy.calledWith({
-      foo: "bar"
-    }));
-  });
-
-  it('custom reporter should be initialized if provided', function () {
-    var spy = sinon.spy(this.reporter, "init");
-    sweter.init({
-      reporter: this.reporter,
-      reporterOptions: {
-        foo: "bar"
-      }
-    });
-
-    assert(spy.calledWith({
-      foo: "bar"
+      modules: "windowPerformance",
+      timeout: 30
     }));
   });
 

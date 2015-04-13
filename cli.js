@@ -2,8 +2,7 @@
 'use strict';
 var meow = require('meow');
 var sweter = require('./');
-var reporter = require('./lib/reporter/console');
-var flag;
+var flag, reporter;
 
 var cli = meow({
   help: [
@@ -34,14 +33,15 @@ if (!cli.input[0]) {
 
 var params = {
   url: cli.input[0],
-  runs: cli.flags.runs || 1,
-  timeout: cli.flags.timeout || 30,
-  reporter: reporter
+  runs: cli.flags.runs,
+  timeout: cli.flags.timeout,
+  reporter: cli.flags.reporter,
+  customReporter: cli.flags.customReporter,
+  reporterOptions: {}
 };
 
 if (cli.flags.reporter || cli.flags.customReporter) {
   reporter = cli.flags.reporter || cli.flags.customReporter;
-  params.reporter = cli.flags.reporter ? require('./lib/reporter/' + reporter) : require(reporter);
   params.reporterOptions = {};
 
   for (var key in cli.flags) {

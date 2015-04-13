@@ -31,14 +31,23 @@ var proceed = function () {
   }
 };
 
+var spawnReporter = function (params) {
+  var reporterName = params.reporter || params.customReporter || "console";
+  try {
+    reporter = require('./lib/reporter/' + reporterName);
+  } catch (e) {
+    reporter = require(reporterName);
+  }
+  reporter.init(params.reporterOptions);
+};
+
 module.exports.init = function (params) {
   url = /^http/.test(params.url) ?  params.url : "http://" + params.url;
-  runs = params.runs;
-  reporter = params.reporter;
-  options.timeout = params.timeout;
+  runs = params.runs || 1;
+  options.timeout = params.timeout || 30;
   options.modules = "windowPerformance";
 
-  reporter.init(params.reporterOptions);
+  spawnReporter(params);
 
   return this;
 };
