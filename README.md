@@ -55,7 +55,11 @@ Sat, 04 Apr 2015 10:40:01 GMT
 sweter can feed elasticsearch instance
 
 ```
-$ sweter http://google.com --reporter elastic --elastic-host localhost --elastic-index sweter
+$ sweter http://google.com \
+    --reporter elastic \
+    --elastic-host localhost \
+    --elastic-index sweter
+
 $ curl http://localhost:9200/sweter/_search
 {
   "_index": "sweter",
@@ -103,7 +107,7 @@ Measure google.com performance every day at 1:00AM and send data to ElasticSearc
 ```
 $ sweter google.com \
     --runs 1067 \
-    --custom-reporter elastic \
+    --reporter elastic \
     --elastic-host localhost \
     --elastic-index google \
     --schedule "0 0 1 * * *" \
