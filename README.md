@@ -17,7 +17,7 @@ $ sweter --help
     sweter <url> [options]
 
   Example
-    sweter http://allegro.pl --runs 1068
+    sweter http://allegro.pl --runs 1067
 
   Options
     --runs       number of tests to be performed
@@ -93,4 +93,18 @@ $ sweter http://google.com \
     --custom-reporter foo \
     --foo-param1 "my param" \
     --foo-param2 777
+```
+
+### Examples
+
+Measure google.com performance every day at 1:00AM and send data to ElasticSearch:
+
+```
+$ sweter google.com \
+    --runs 1067 \
+    --custom-reporter elastic \
+    --elastic-host localhost \
+    --elastic-index google \
+    --schedule "0 0 1 * * *" \
+    --daemonize
 ```
