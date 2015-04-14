@@ -89,5 +89,8 @@ $ sweter http://google.com --custom-reporter foo
 If ``foo`` requires some additional params then pass them this way
 
 ```
-$ sweter http://google.com --custom-reporter foo --foo-param1 "my param" --foo-param2 777
+$ sweter http://google.com \
+    --custom-reporter foo \
+    --foo-param1 "my param" \
+    --foo-param2 777
 ```
