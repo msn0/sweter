@@ -1,7 +1,7 @@
 # Sweter [![Build Status](https://travis-ci.org/msn0/sweter.svg?branch=master)](http://travis-ci.org/msn0/sweter)
 
-Simple web performance reporter with scheduling and ElasticSearch support. Sweter uses phantomas under the hood
-and measures `timeToFirstByte`, `domInteractive` and `domComplete` timings.
+Simple web performance reporter with scheduling and ElasticSearch support. Sweter uses `phantomas` under the hood
+and reports `timeToFirstByte`, `domInteractive` and `domComplete` timings.
 
 ## Installation
 
