@@ -1,8 +1,10 @@
 'use strict';
 
 var runner = require('./lib/runner/phantomas');
+var CronJob = require('cron').CronJob;
+var daemonize = require('daemon');
 
-var url, runs, reporter, options = {};
+var url, runs, reporter, job, options = {};
 
 var prepareMetrics = function (metrics) {
   return {
@@ -41,6 +43,11 @@ var spawnReporter = function (params) {
   reporter.init(params.reporterOptions);
 };
 
+var runScheduledJob = function (originalRuns) {
+  runs = originalRuns;
+  this.run();
+};
+
 module.exports.init = function (params) {
   url = /^http/.test(params.url) ?  params.url : "http://" + params.url;
   runs = params.runs || 1;
@@ -48,6 +55,13 @@ module.exports.init = function (params) {
   options.modules = "windowPerformance";
 
   spawnReporter(params);
+
+  if (params.schedule) {
+    job = new CronJob(params.schedule, runScheduledJob.bind(this, runs), null, true);
+  }
+  if (params.daemonize) {
+    daemonize();
+  }
 
   return this;
 };

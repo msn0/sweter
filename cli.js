@@ -16,6 +16,8 @@ var cli = meow({
     '  --runs       number of tests to be performed',
     '  --timeout    timeout for single test run, defaults to 30s',
     '  --reporter   console (default), elastic or json',
+    '  --schedule   schedule in cron format "* * * * * *"',
+    '  --daemonize  daemonize a process',
     '',
     'Elasticsearch options',
     '  --elastic-host    elasticsearch host',
@@ -37,6 +39,8 @@ var params = {
   timeout: cli.flags.timeout,
   reporter: cli.flags.reporter,
   customReporter: cli.flags.customReporter,
+  schedule: cli.flags.schedule,
+  daemonize: cli.flags.daemonize,
   reporterOptions: {}
 };
 
@@ -52,6 +56,8 @@ if (cli.flags.reporter || cli.flags.customReporter) {
   }
 }
 
-sweter
-  .init(params)
-  .run();
+sweter.init(params);
+
+if (!params.schedule) {
+  sweter.run();
+}
