@@ -34,11 +34,12 @@ describe('Sweter', function () {
     var spy = sinon.spy(this.runner, "run");
     this.sweter
       .init({
-        url: "http://url"
+        url: "http://url",
+        modules: "foo"
       })
       .run();
     assert(spy.calledWith("http://url", {
-      modules: "windowPerformance",
+      modules: "foo",
       timeout: 30
     }));
   });
