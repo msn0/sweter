@@ -114,6 +114,12 @@ $ sweter google.com \
     --daemonize
 ```
 
+### Debugging
+
+```
+$ DEBUG=* sweter google.com
+```
+
 ## License
 
 Apache-2.0 &copy; [Michał Jezierski](https://pl.linkedin.com/in/jezierskimichal)
