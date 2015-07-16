@@ -113,3 +113,7 @@ $ sweter google.com \
     --schedule "0 0 1 * * *" \
     --daemonize
 ```
+
+## License
+
+Apache-2.0 &copy; [Michał Jezierski](https://pl.linkedin.com/in/jezierskimichal)
