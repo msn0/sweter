@@ -114,6 +114,14 @@ $ sweter google.com \
     --daemonize
 ```
 
+Measure google.com performance every four hours and log median to file:
+```
+$ sweter google.com \
+    --runs 600 \
+    --custom-reporter sweter-stats-reporter \
+    --schedule "0 0 */4 * * *" >> report
+```
+
 ### Debugging
 
 ```
