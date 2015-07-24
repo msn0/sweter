@@ -27,9 +27,12 @@ var handleError = function (error) {
 };
 
 var proceed = function () {
-  if (runs > 1) {
-    runs--;
+  runs--;
+  if (runs > 0) {
     this.run();
+  }
+  if (runs === 0) {
+    reporter.finalize();
   }
 };
 
