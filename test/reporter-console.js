@@ -5,16 +5,18 @@ var reporter = require('../lib/reporter/console');
 
 describe('Console reporter', function () {
 
+  var log, out;
+
   beforeEach(function () {
-    this.log = console.log;
-    this.out = "";
+    log = console.log;
+    out = "";
     console.log = function (message) {
-      this.out += message + '\n';
+      out += message + '\n';
     }.bind(this);
   });
 
   afterEach(function () {
-    console.log = this.log;
+    console.log = log;
   });
 
   it('should display formatted result', function () {
@@ -23,7 +25,7 @@ describe('Console reporter', function () {
       "B": "bar"
     });
 
-    assert.equal("Thu, 01 Jan 1970 00:00:00 GMT\n  A: foo\n  B: bar\n", this.out);
+    assert.equal("Thu, 01 Jan 1970 00:00:00 GMT\n  A: foo\n  B: bar\n", out);
   });
 });
 
