@@ -1,6 +1,6 @@
 {
   "name": "sweter",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Simple web performance reporter",
   "author": {
     "name": "Michał Jezierski",
@@ -45,6 +45,7 @@
     "elasticsearch": "^4.0.2",
     "meow": "^3.1.0",
     "phantomas": "^1.10.0",
+    "sweter-console-reporter": "^0.1.0",
     "sweter-stats-reporter": "^0.3.0"
   },
   "devDependencies": {
