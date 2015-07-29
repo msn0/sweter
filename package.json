@@ -46,6 +46,8 @@
     "meow": "^3.1.0",
     "phantomas": "^1.10.0",
     "sweter-console-reporter": "^0.1.0",
+    "sweter-elastic-reporter": "^0.1.0",
+    "sweter-json-reporter": "^0.1.0",
     "sweter-stats-reporter": "^0.3.0"
   },
   "devDependencies": {

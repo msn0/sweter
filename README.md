@@ -18,31 +18,29 @@ $ sweter --help
     sweter <url> [options]
 
   Example
-    sweter http://allegro.pl --runs 1067
+    sweter allegro.pl --runs 1067
 
   Options
     --runs       number of tests to be performed
     --timeout    timeout for single test run, defaults to 30s
-    --reporter   console (default), elastic or json
+    --reporter   console (default), elastic, stats or json
     --schedule   schedule in cron format "* * * * * *"
     --daemonize  daemonize a process
 
-  Elasticsearch options
-    --elastic-host    elasticsearch host
-    --elastic-index   elasticsearch index
+  Elastic options
+    --elastic-host    elastic host
+    --elastic-index   elastic index
 
-  Custom reporters
-    --custom-reporter   a node module to be used as reporter
 ```
 
-## Output
+## Reporters
 
 ### Console reporter
 
-By default sweter outputs data to console
+By default Sweter outputs data to console
 
 ```
-$ sweter http://google.com
+$ sweter google.com
 
 Sat, 04 Apr 2015 10:40:01 GMT
   timeToFirstByte: 139
@@ -50,12 +48,33 @@ Sat, 04 Apr 2015 10:40:01 GMT
   domComplete: 664
 ```
 
-### ElasticSearch reporter
-
-sweter can feed elasticsearch instance
+### Stats reporter
 
 ```
-$ sweter http://google.com \
+$ sweter google.com --reporter stats
+
+{
+  "date":"2015-07-29T12:54:20.403Z",
+  "timeToFirstByte": { "median":0.25 },
+  "domInteractive":  { "median":0.7  },
+  "domComplete":     { "median":1.79 }
+}
+```
+
+### JSON reporter
+
+```
+$ sweter google.com --reporter json
+
+{"timeToFirstByte":329,"domInteractive":610,"domComplete":1557}
+```
+
+### Elastic reporter
+
+Sweter can feed Elastic instance
+
+```
+$ sweter google.com \
     --reporter elastic \
     --elastic-host localhost \
     --elastic-index sweter
@@ -82,20 +101,20 @@ $ curl http://localhost:9200/sweter/_search
 You can write your own reporter if you want. See https://github.com/msn0/sweter-custom-reporter as an example and use it this way
 
 ```
-$ sweter http://google.com --custom-reporter sweter-custom-reporter
+$ sweter google.com --reporter sweter-custom-reporter
 ```
 
 So, assuming your node module name is ``foo`` then
 
 ```
-$ sweter http://google.com --custom-reporter foo
+$ sweter google.com --reporter foo
 ```
 
 If ``foo`` requires some additional params then pass them this way
 
 ```
-$ sweter http://google.com \
-    --custom-reporter foo \
+$ sweter google.com \
+    --reporter foo \
     --foo-param1 "my param" \
     --foo-param2 777
 ```
@@ -118,7 +137,7 @@ Measure google.com performance every four hours and log median to file:
 ```
 $ sweter google.com \
     --runs 600 \
-    --custom-reporter sweter-stats-reporter \
+    --reporter stats \
     --schedule "0 0 */4 * * *" >> report
 ```
 

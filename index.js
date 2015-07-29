@@ -37,9 +37,9 @@ var proceed = function () {
 };
 
 var spawnReporter = function (params) {
-  var reporterName = params.reporter || params.customReporter || "sweter-console-reporter";
+  var reporterName = params.reporter || "console";
   try {
-    reporter = require('./lib/reporter/' + reporterName);
+    reporter = require('sweter-' + reporterName + '-reporter');
   } catch (e) {
     reporter = require(reporterName);
   }

@@ -15,16 +15,13 @@ var cli = meow({
     'Options',
     '  --runs       number of tests to be performed',
     '  --timeout    timeout for single test run, defaults to 30s',
-    '  --reporter   console (default), elastic or json',
+    '  --reporter   console (default), elastic, stats or json',
     '  --schedule   schedule in cron format "* * * * * *"',
     '  --daemonize  daemonize a process',
     '',
-    'Elasticsearch options',
-    '  --elastic-host    elasticsearch host',
-    '  --elastic-index   elasticsearch index',
-    '',
-    'Custom reporters',
-    '  --custom-reporter  a node module to be used as reporter'
+    'Elastic options',
+    '  --elastic-host    elastic host',
+    '  --elastic-index   elastic index'
   ].join('\n')
 });
 
