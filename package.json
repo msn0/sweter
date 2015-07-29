@@ -1,6 +1,6 @@
 {
   "name": "sweter",
-  "version": "0.11.0",
+  "version": "1.0.0",
   "description": "Simple web performance reporter",
   "author": {
     "name": "Michał Jezierski",
@@ -42,18 +42,17 @@
   "dependencies": {
     "cron": "^1.0.9",
     "daemon": "^1.1.0",
-    "elasticsearch": "^4.0.2",
     "meow": "^3.1.0",
     "phantomas": "^1.10.0",
     "sweter-console-reporter": "^0.1.0",
-    "sweter-elastic-reporter": "^0.1.0",
+    "sweter-elastic-reporter": "^0.1.1",
     "sweter-json-reporter": "^0.1.0",
     "sweter-stats-reporter": "^0.3.0"
   },
   "devDependencies": {
     "jshint": "^2.6.3",
     "mocha": "^2.2.4",
-    "rewire": "^2.3.1",
-    "sinon": "^1.14.1"
+    "rewire": "^2.3.4",
+    "sinon": "^1.15.4"
   }
 }
