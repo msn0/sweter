@@ -6,27 +6,27 @@ var daemonize = require('daemon');
 
 var url, runs, reporter, job, options = {};
 
-var prepareMetrics = function (metrics) {
+function prepareMetrics(metrics) {
   return {
     "timeToFirstByte": metrics.timeToFirstByte,
     "domInteractive": metrics.domInteractive,
     "domComplete": metrics.domComplete
   };
-};
+}
 
-var handleResults = function (results) {
+function handleResults(results) {
   reporter
     .push(Date.now(), prepareMetrics(results.getMetrics()))
     .then(proceed.bind(this));
-};
+}
 
-var handleError = function (error) {
+function handleError(error) {
   console.error(error);
   runs++;
   proceed();
-};
+}
 
-var proceed = function () {
+function proceed() {
   runs--;
   if (runs > 0) {
     this.run();
@@ -34,9 +34,9 @@ var proceed = function () {
   if (runs === 0) {
     reporter.finalize();
   }
-};
+}
 
-var spawnReporter = function (params) {
+function spawnReporter(params) {
   var reporterName = params.reporter || "console";
   try {
     reporter = require('sweter-' + reporterName + '-reporter');
@@ -44,12 +44,12 @@ var spawnReporter = function (params) {
     reporter = require(reporterName);
   }
   reporter.init(params.reporterOptions);
-};
+}
 
-var runScheduledJob = function (originalRuns) {
+function runScheduledJob(originalRuns) {
   runs = originalRuns;
   this.run();
-};
+}
 
 module.exports.init = function (params) {
   url = /^http/.test(params.url) ?  params.url : "http://" + params.url;
