@@ -1,10 +1,10 @@
 'use strict';
 
-var runner = require('./lib/runner/phantomas');
-var CronJob = require('cron').CronJob;
-var daemonize = require('daemon');
+let runner = require('./lib/runner/phantomas');
+const CronJob = require('cron').CronJob;
+const daemonize = require('daemon');
 
-var url, runs, reporter, job, options = {};
+let url, runs, reporter, job, options = {};
 
 function prepareMetrics(metrics) {
   return {

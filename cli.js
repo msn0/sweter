@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
-var meow = require('meow');
-var sweter = require('./');
-var flag, reporter;
+const meow = require('meow');
+const sweter = require('./');
+let flag, reporter;
 
-var cli = meow({
+const cli = meow({
   help: [
     'Usage',
     '  sweter <url> [options]',
@@ -30,7 +30,7 @@ if (!cli.input[0]) {
   process.exit(1);
 }
 
-var params = {
+const params = {
   url: cli.input[0],
   runs: cli.flags.runs,
   timeout: cli.flags.timeout,
