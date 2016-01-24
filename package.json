@@ -1,6 +1,6 @@
 {
   "name": "sweter",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha",
   "description": "Simple web performance reporter",
   "author": {
     "name": "Michał Jezierski",
@@ -11,7 +11,7 @@
     "test": "mocha"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4.2.1"
   },
   "bin": {
     "sweter": "cli.js"
